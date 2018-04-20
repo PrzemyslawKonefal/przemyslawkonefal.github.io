@@ -1,0 +1,16 @@
+.main-space{
+  display: inline-block;
+  position: relative;
+  border: 1px solid #000;
+  margin: 0;
+  float: left;
+  cursor: pointer;
+  transition: .3s ease;
+  box-sizing: border-box;
+}
+.main-space:hover{
+  background: #d6d6d6;
+}
+.active-space{
+  background: #000;
+}

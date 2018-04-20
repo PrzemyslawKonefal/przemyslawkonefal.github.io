@@ -1,0 +1,49 @@
+  <p class="warning"
+   *ngIf = "previousFloorSize.width < floorWidth">
+   <strong>WARNING! This floor is wider than the previous one!</strong></p>
+   <p class="warning"
+    *ngIf = "previousFloorSize.height < floorHeight">
+    <strong >WARNING! This floor is higer than the previous one!</strong></p>
+
+
+<div class="settings">
+  <span (click) = "settingSwitch(1)">Size</span>
+  <span (click) = "settingSwitch(2)">Add Space</span>
+  <div class="size-dropdown" *ngIf = "settingNumber === 1">
+      <span class="close" (click) = "closeSetting(0)">X</span>
+    <p>Floor Width</p>
+    <input type="number" [value] = "floorWidth" [(ngModel)] = "floorWidth" (change) = "emitSizes()">
+    <p>Floor Height</p>
+    <input type="number" [value] = "floorHeight" [(ngModel)] = "floorHeight" (change) = "emitSizes()">
+  </div>
+</div>
+
+
+<div class="floor" [ngStyle] = "{'width.px': floorWidth, 'height.px': floorHeight}">
+  <p class="floor-width">{{floorWidth}}</p>
+  <p class="floor-height">{{floorHeight}}</p>
+
+  <div class="spaces">
+ <app-space
+  *ngFor = "let space of spaces index as i"
+   [spaceData] = "space"
+   (click) = "spaceSettings(i)"
+   [legend] = "legend"
+   ></app-space>
+ </div>
+</div>
+
+<div class="spaces-settings" *ngIf = "spaceEdition">
+      <span class="close" (click) = "closeSetting(1)">X</span>
+     <h4>Space Settings</h4>
+       <p>Type</p>
+      <input type="text" [(ngModel)] = "spaces[editingSpaceIndex].type">
+      <p>Width</p>
+      <input type="number" [(ngModel)] = "spaces[editingSpaceIndex].width">
+      <p>Height</p>
+      <input type="number" [(ngModel)] = "spaces[editingSpaceIndex].height">
+      <p>Move Up/Down</p>
+      <input type="number" [(ngModel)] = "spaces[editingSpaceIndex].bottom">
+      <p>Move Right/Left</p>
+      <input type="number" [(ngModel)] = "spaces[editingSpaceIndex].right">
+</div>

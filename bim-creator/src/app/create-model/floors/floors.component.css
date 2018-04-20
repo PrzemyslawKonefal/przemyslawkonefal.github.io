@@ -1,0 +1,8 @@
+h2{
+  margin-bottom: 40px;
+}
+#allFloors{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

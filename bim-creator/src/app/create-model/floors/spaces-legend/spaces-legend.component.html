@@ -1,0 +1,21 @@
+<div
+ style = "display:flex; justify-content: center; padding: 10px 35px; border:1px solid #656565;"
+ (mouseover) = "deleteShow = true"
+ (mouseleave) = "deleteShow = false"
+ >
+  <input
+   type="text"
+  style="border:none; background:inherit; padding-left:10px;"
+   [(ngModel)] = "spaceLegendData.spaceType"
+   (change) = "refreshLegend()"
+   >
+  <input
+  type="color"
+  style="border:none; background: inherit;"
+   [(ngModel)] = "spaceLegendData.spaceColor"
+   (change) = "refreshLegend()">
+   <p
+   *ngIf = "deleteShow"
+   (click) = "deleteTriggered.emit()"
+   style=" color:#fff; cursor:pointer;">X</p>
+</div>

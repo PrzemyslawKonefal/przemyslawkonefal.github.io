@@ -1,0 +1,21 @@
+#menu{
+  top:0;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  height: 70px;
+  box-shadow: 0 3px 30px #000;
+  z-index: 10000;
+}
+#menu > span{
+  color: #fff;
+  font-size: 1.5em;
+  transition: .3s ease;
+}
+#menu > span:hover{
+  filter: brightness(80%);
+  cursor: pointer;
+}

@@ -1,2 +1,4 @@
 # przemyslawkonefal.github.io
-Bringing life into projects.
+Bringing projects to life :)
+
+https://przemyslawkonefal.github.io

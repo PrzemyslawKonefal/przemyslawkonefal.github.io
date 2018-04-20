@@ -1,0 +1,22 @@
+<h1>Input the number of floors</h1>
+<input type="number" min="0" value="0" [(ngModel)] = "floorsNumber" (change) = "refreshFloors()">
+
+<div style="padding: 30px;">
+  <h4>Spaces Legend</h4>
+  <app-spaces-legend
+    *ngFor = "let spaceLegend of spacesLegend index as i"
+    [spaceLegendData] = "spaceLegend"
+    (legendChanged) = "updateLegend($event, i)"
+    (deleteTriggered) = "spacesLegend.splice(i, 1)"
+  ></app-spaces-legend>
+  <button type="button" (click) = "spacesLegend.push({spaceType: 'New', spaceColor: '#000000'})">Add New</button>
+</div>
+
+<div id="allFloors">
+    <div *ngFor = "let floor of floors  index as i" style="margin:20px; position: relative;">
+      <h2>Floor number {{i}}</h2>
+      <app-floor (sizes) = "checkSizes($event, i)"
+       [previousFloorSize] = "i > 0 ? FloorSizes[i-1]: {floorWidth: 999999999, floorHeight: 999999999}"
+       [legend] = "spacesLegend"> </app-floor>
+    </div>
+  </div>

@@ -1,0 +1,5 @@
+<!--The content below is only a placeholder and can be replaced.-->
+  <app-menu (CategoryChanged) = "onCategoryChange($event)"></app-menu>
+  <div style="position: relative; top: 70px;">
+  <app-create-model (CategoryChanged) = "onCategoryChange($event)" *ngIf="activeCategory===1"></app-create-model>
+  </div>
